@@ -1,12 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlexBox</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            .container{
+                margin: 0;
+                height: calc(100vh - 20px);
+                width: calc(100vw - 20px);
+                border: 10px solid red;
+                
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+
+            }
+            .img_blocks img{
+                margin: 5px;
+                height: 120px;
+                width: auto;
+            }
+            
+            .container > .img_blocks{
+                display: flex; /*flex container, afecta al elemento que se encuntra dentro de el, las imgs*/
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            
+            .container2{
+                margin: 0;
+                height: calc(100vh - 20px);
+                width: calc(100vw - 20px);
+                border: 10px solid red;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }           
+            .blocks{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 1000px;
+                
+            }
+            .block{
+                background-color: cadetblue;
+                height: 200px;
+                margin: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .block1{
+                flex-basis: 400px; /*400px en pantalla completa*/
+                /*Lo importante es que auto-size segun el ancho de la pantalla*/
+                /*se relaciona con los siguientes bloque, 
+                así su relación será el 100%, 1/4 y 1/2*/
+                flex-grow: 4;
+                /*Relaciona el crecimiento respecto a los otros elementos
+                el primero crece 4 veces mas rapido que el segundo
+                no tiene el max de 400px(con flex-basis comented)*/
+                flex-shrink: 2;
+                /*Decrece el doble de rapido que las demas.
+                suele ir con flex-basis, para darle el valor referencia*/
+                order: 3;
+            }
+            .block2{
+                flex-basis: 100px;
+                flex-grow: 1;
+                flex-shrink: 1;
+                order: 2;
+                
+            }
+            .block3{
+                flex-basis: 200px;
+                flex-grow: 2;
+                flex-shrink: 1;
+                order: 1;
+            }
+
+            .container3{
+                margin: 0;
+                height: calc(100vh - 20px);
+                width: calc(100vw - 20px);
+                border: 10px solid red;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+
+            } 
+            .container3 img{
+                margin: 10px;
+                height: 90px;
+                width: 150px;
+            }
+            /*mejor en separete div and flex containers, esto acaba siendo un poco guarrada*/
+            .img1{
+                align-self: center;
+            }
+            .img2{
+                align-self:flex-end;
+            }
+            .img3{
+                align-self:flex-start;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="img_blocks">
+                <img src="https://source.unsplash.com/random/150x150" alt="">
+                <img src="https://source.unsplash.com/random/150x150" alt="">
+                <img src="https://source.unsplash.com/random/150x150" alt="">
+                <img src="https://source.unsplash.com/random/150x150" alt="">
+                <img src="https://source.unsplash.com/random/150x150" alt="">
+                <img src="https://source.unsplash.com/random/150x150" alt="">
+                <img src="https://source.unsplash.com/random/150x150" alt="">
+                <img src="https://source.unsplash.com/random/150x150" alt="">
+                
+            </div>
+        </div>
+        <div class="container2">
+            <div class="blocks">
+                <div class="block block1">1</div>
+                <div class="block block2">2</div>
+                <div class="block block3">3</div>
+            </div>
+        </div>
+        <div class="container3">
+            <img src="https://source.unsplash.com/random/150x150" class="img1" alt="">
+            <img src="https://source.unsplash.com/random/150x150" class="img2"alt="">
+            <img src="https://source.unsplash.com/random/150x150" class="img3" alt="">                   
+        </div>
+    </body>
+
 </html>
